@@ -1,6 +1,6 @@
 const loadProducts = () => {
-  const url = `http://127.0.0.1:5500/db.json`;
-  // const url = `https://fakestoreapi.com/products`;
+  // const url = `http://127.0.0.1:5500/db.json`;
+  const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
@@ -19,7 +19,7 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h4>${product.title}</h4>
       <p>Category: ${product.category}</p>
       <p class="text-info">Rating: ${product.rating.rate}</p>
       <p class="text-info">Rated by: ${product.rating.count} peoples</p>
@@ -42,7 +42,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
   return converted;
 };
 
@@ -56,7 +56,7 @@ const updatePrice = (id, value) => {
 
 // set innerText function
 const setInnerText = (id, value) => {
-  document.getElementById(id).innerText = value.toFixed(2);
+  document.getElementById(id).innerText = (Math.round(value)).toFixed(2);
 };
 
 // update delivery charge and total Tax
@@ -82,4 +82,5 @@ const updateTotal = () => {
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
+
 };
