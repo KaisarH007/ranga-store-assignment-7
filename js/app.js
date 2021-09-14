@@ -1,4 +1,5 @@
 const loadProducts = () => {
+
   const url = `https://fakestoreapi.com/products`;
   fetch(url)
     .then((response) => response.json())
@@ -10,21 +11,24 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    console.log(product)
+    // console.log(product)
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
+    div.classList.add("product", "ms-2", "mt-2", "h-100");
+    div.innerHTML = `<div class="single-product card rounded-3">
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h4>${product.title}</h4>
+      <div class="card-body">
+      <h6>${product.title}</h6>
       <p>Category: ${product.category}</p>
-      <p>Rating: ${product.rating.rate}</p>
-      <p>Rated by: ${product.rating.count} peoples</p>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-primary">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <h6>Rating: ${product.rating.rate}</h6>
+      <h6>Rated by: ${product.rating.count} peoples</h6>
+      </div>
+      <div class="card-footer">
+      <h4>Price: $ ${product.price}</h4>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-primary me-4">add to cart</button>
+      <button id="details-btn" class="btn btn-danger ">Details</button> </div> </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }

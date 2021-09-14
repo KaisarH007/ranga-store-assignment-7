@@ -20,18 +20,17 @@
 <body>
   <header></header>
   <main>
-    <section class="container mt-4">
+    <section class="container mt-4 ">
       <div class="input-group mb-3 w-50 mx-auto my-auto">
-        <input id="search-field" type="text" class="form-control" placeholder="Search here" aria-label=""
+        <input type="text" class="form-control" placeholder="Search here" aria-label=""
           aria-describedby="button-addon2">
         <!-- search Button  -->
-        <button onclick="loadProducts()" item class="btn text-black fw-bold bg-warning btn-outline-warning "
-          type="button" id="search-buuton">Search</button>
+        <button item class="btn text-black fw-bold bg-warning btn-outline-warning " type="button">Search</button>
       </div>
 
       <div class="row ">
         <div class="col-md-9 col-lg-9 col-sm-7">
-          <div id="all-products" class="">
+          <div id="all-products" class="border-radius-lg">
 
           </div>
         </div>
@@ -80,7 +79,7 @@
               </tbody>
             </table>
             <div class="parces text-center">
-              <button class="btn btn-primary text-center">Buy Now</button>
+              <button class="btn btn-success text-center">Buy Now</button>
             </div>
           </div>
         </div>
@@ -92,5 +91,7 @@
   <!-- add javascript  file  -->
   <script src="./js/app.js"></script>
 </body>
+
+
 
 </html>
